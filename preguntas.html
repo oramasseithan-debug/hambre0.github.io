@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - Hambre Cero y la importancia de ayudar
+</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header class="banner">
+        <nav class="nav-container">
+            <div class="logo">HAMBRE 0</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="preguntas.html">FAQ</a></li>
+		        <li><a href="redes.html">Redes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <h1 class="titulo-galeria">Hambre Cero y la importancia de ayudar
+</h1>
+        <p style="text-align: center; margin-bottom: 30px;">El objetivo Hambre Cero busca reducir el hambre en el mundo y asegurar que todas las personas tengan acceso a una alimentación saludable. También promueve acciones para evitar el desperdicio de comida y apoyar a quienes más lo necesitan.
+.</p>
+
+        <div class="accordion">
+    <div class="accordion-item">
+        <div class="accordion-header">
+            1.¿Qué significa el objetivo Hambre Cero?
+            <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <p>Busca acabar con el hambre y mejorar el acceso a alimentos saludables para todas las personas.</p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header">
+            2.¿Cómo podemos ayudar a reducir el hambre?
+            <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <p>Podemos evitar desperdiciar comida, donar alimentos y apoyar a personas necesitadas</p>
+        </div>
+    </div>
+    
+    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copy">&copy; 2026 Hambre 0</p>
+            <div class="redes-sociales">
+                <a href="#" class="red-link">Facebook</a>
+                <a href="#" class="red-link">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+    $(".accordion-header").click(function() {
+        const content = $(this).next(".accordion-content");
+
+        // 1. Cerramos los demás suavemente
+        $(".accordion-header").not(this).removeClass("active");
+        $(".accordion-content").not(content).hide(); // Usamos hide directo para evitar saltos
+
+        // 2. Al que clickeamos, lo activamos
+        $(this).toggleClass("active");
+        
+        // 3. Usamos fadeToggle en lugar de slideToggle
+        // Esto hace que aparezca/desaparezca sin "empujar" tan fuerte
+        content.fadeToggle(300); 
+    });
+});
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtenemos el nombre del archivo actual (ej: "contacto.html")
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+
+        // Seleccionamos todos los enlaces del menú
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            
+            // Si el href del enlace coincide con la página actual, le ponemos la clase
+            // También manejamos el caso de la página de inicio vacía o index.html
+            if (href === page || (page === "" && href === "index.html")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
+</body>
+</html>

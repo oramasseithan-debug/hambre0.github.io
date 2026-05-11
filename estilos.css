@@ -1,0 +1,69 @@
+/* --- GLOBALES --- */
+body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f7f6; display: flex; flex-direction: column; min-height: 100vh; }
+.banner { background-color: #1a2a6c; color: white; width: 100%; position: fixed; top: 0; z-index: 1000; padding: 10px 0; }
+.footer { background-color: #1a2a6c; color: #b8c1ec; width: 100%; padding: 15px 0; margin-top: auto; }
+.nav-container, .footer-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+.nav-links li { margin-left: 20px; }
+.nav-links a { color: white; text-decoration: none; }
+.nav-links a.active { color: #00d2ff; font-weight: bold; }
+.red-link { color: white; text-decoration: none; margin-left: 15px; }
+.red-link:hover { color: #00d2ff; }
+
+/* --- INICIO --- */
+.contenedor-principal { max-width: 1000px; margin: 100px auto 40px; padding: 0 20px; }
+.marquesina-container { width: 100%; background-color: #007bff; color: white; overflow: hidden; padding: 12px 0; font-weight: bold; border-radius: 8px; }
+.marquesina-texto { display: inline-block; white-space: nowrap; padding-left: 100%; animation: mov 18s linear infinite; }
+@keyframes mov { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+.contenido-info { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.contenido-info h1 { border-left: 5px solid #007bff; padding-left: 15px; }
+
+/* --- CARRUSEL --- */
+.carrusel-container { position: relative; width: 90%; max-width: 800px; margin: auto; overflow: hidden; border-radius: 12px; background: #000; }
+.carrusel-pista { display: flex; transition: transform 0.5s ease; }
+.carrusel-pista img { width: 100%; height: 450px; object-fit: cover; flex-shrink: 0; }
+.boton { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 20px; cursor: pointer; z-index: 20; }
+.prev { left: 0; } .next { right: 0; }
+.carrusel-info { position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 128, 0.8); color: white; padding: 15px 0; z-index: 10; }
+
+/* --- ACORDEÓN --- */
+.accordion { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+.accordion-item { background-color: #ffffff !important; border: 2px solid #e0e0e0 !important; border-radius: 12px !important; margin-bottom: 15px !important; box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important; overflow: hidden; }
+.accordion-header { padding: 20px !important; cursor: pointer; font-weight: bold; color: #333; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+.accordion-header:hover { background-color: #e3f2fd !important; }
+.accordion-header.active { background-color: #007bff !important; color: white !important; }
+.accordion-content { display: none; padding: 20px !important; background-color: #ffffff !important; border-top: 1px solid #eee; color: #555; line-height: 1.6; min-height: 100px; }
+
+/* Color azul para el enlace activo */
+.nav-links a.active {
+    color: #007bff !important; /* El color azul que definimos */
+    font-weight: bold;
+}
+
+/* --- ADAPTACIÓN A TABLETS Y CELULARES --- */
+
+/* Para pantallas menores a 768px (Tablets y Celulares) */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column; /* Apila los links verticalmente */
+        text-align: center;
+        background: #222;
+        padding: 10px;
+    }
+    .nav-links li {
+        margin: 10px 0;
+    }
+    .contenedor-principal {
+        margin-top: 80px; /* Ajusta el margen según el tamaño de tu banner */
+    }
+}
+
+/* Para pantallas menores a 480px (Celulares en vertical) */
+@media (max-width: 480px) {
+    .carrusel-container {
+        height: 250px; /* Reduce la altura del carrusel en celular */
+    }
+    .carrusel-pista img {
+        height: 250px; /* Mismo tamaño para las imágenes */
+    }
+}

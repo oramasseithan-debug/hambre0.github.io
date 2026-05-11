@@ -1,0 +1,319 @@
+/* Configuración General */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* Empuja el footer hacia abajo si hay poco contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px; /* Espacio para que el banner fijo no tape el contenido */
+}
+
+/* BANNER DE NAVEGACIÓN */
+/* Variables de estilo para coherencia */
+:root {
+    --color-oscuro: #222222;
+    --color-acento: #ff9800; /* El naranja que usamos antes */
+    --ancho-maximo: 1200px;
+}
+
+/* --- ENCABEZADO / BANNER --- */
+.banner {
+    background-color: #222;
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Controla la altura del banner aquí */
+    padding: 10px 0; 
+}
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ff9800; /* Color naranja para destacar */
+}
+
+/* CARRUSEL (Mismo código anterior pero integrado) */
+.carrusel-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #000;
+}
+
+.carrusel-pista {
+    display: flex; /* Esto pone las imágenes una al lado de la otra */
+    transition: transform 0.5s ease;
+}
+
+.carrusel-pista img {
+    width: 100%; /* Si esto falta, la imagen puede medir 0px */
+    flex-shrink: 0;
+}
+
+.carrusel-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo bien oscuro */
+    color: #ffffff !important; /* Texto blanco puro */
+    text-align: center;
+    padding: 15px 0;
+    z-index: 10; /* Asegura que esté por encima de las fotos */
+}
+
+#pie-foto {
+    margin: 0;
+    font-size: 1.2rem;
+    opacity: 1; /* Asegúrate de que no esté en 0 */
+}
+
+.titulo-galeria {
+    letter-spacing: 5px;
+    color: #444;
+}
+
+/* Esto centra los botones verticalmente y los separa a los lados */
+.boton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical exacto */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 20; /* Por encima de la descripción y la imagen */
+    transition: background 0.3s;
+}
+
+.prev { 
+    left: 0; 
+    border-radius: 0 5px 5px 0; 
+}
+
+.next { 
+    right: 0; 
+    border-radius: 5px 0 0 5px; 
+}
+
+.boton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- PIE DE PÁGINA --- */
+.footer {
+    background-color: #222;
+    color: #bbb;
+    width: 100%;
+    /* Reducimos el grosor del footer aquí */
+    padding: 15px 0; 
+    margin-top: 50px;
+}
+
+/* --- CONTENEDOR COMÚN (Mismo ancho para ambos) --- */
+.nav-container, .footer-container {
+    max-width: 1000px; /* Puedes subirlo a 1200px si lo quieres más ancho */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- AJUSTES DE TEXTO --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.copy, .redes-sociales {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.red-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.red-link:hover {
+    color: #ff9800;
+}
+
+.redes-sociales {
+    margin-bottom: 15px;
+}
+
+.red-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+.red-link:hover {
+    color: #ff9800;
+}
+
+.copy {
+    font-size: 0.8rem;
+}
+
+/* ==========================================
+   ESTILOS ESPECÍFICOS DE LA PÁGINA DE INICIO
+   ========================================== */
+
+/* Contenedor principal de la página de inicio */
+.contenedor-principal {
+    max-width: 1000px; /* Alineado con el carrusel */
+    margin: 100px auto 40px; /* 100px arriba para no chocar con el banner fijo */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* MARQUESINA MODERNA */
+.marquesina-container {
+    width: 100%;
+    background-color: #ff9800; /* Color de acento naranja */
+    color: #222;
+    overflow: hidden;
+    padding: 12px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.marquesina-texto {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: movimiento-marquesina 18s linear infinite;
+}
+
+@keyframes movimiento-marquesina {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* SECCIÓN DE TEXTO INFORMATIVO */
+.contenido-info {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    line-height: 1.8;
+    color: #444;
+}
+
+.contenido-info h1 {
+    color: #222;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 5px solid #ff9800;
+    padding-left: 15px;
+}
+
+.contenido-info p {
+    margin-bottom: 15px;
+}
+
+.imagen-decorativa img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+/* Transición suave */
+.carrusel-pista {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Esta es la clave de la fluidez */
+}
+
+/* Los indicadores */
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    z-index: 100; /* Asegura que estén encima */
+    position: relative;
+}
+
+.punto {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.punto.activo {
+    background-color: #007bff;
+}
+
+/* Para que la info del carrusel no se monte sobre los puntos */
+.carrusel-info {
+    position: relative; /* Cambiado de absolute a relative para que empuje el contenido */
+    padding: 10px;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+/* Espaciado para que no se pegue al footer */
+.carrusel-container {
+    margin-bottom: 60px; /* Crea espacio abajo */
+    position: relative;
+    overflow: hidden;
+}
+

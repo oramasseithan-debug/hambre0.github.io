@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociales - Hambre 0</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .grid-redes { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card-red { background: #f4f4f4; padding: 30px; text-align: center; border-radius: 12px; text-decoration: none; color: #333; transition: 0.3s; }
+        .card-red:hover { background: #007bff; color: white; transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+    <header class="banner">
+    <nav class="nav-container">
+        <div class="logo">HAMBRE 0</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="preguntas.html">FAQ</a></li>
+            <li><a href="redes.html">Redes</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="contenedor-principal">
+        <section class="contenido-info">
+            <h1>Nuestras Redes</h1>
+            <p>Síguenos en nuestras plataformas digitales para no perderte ninguna actualización.</p>
+            
+            <div class="grid-redes">
+                <a href="#" class="card-red"><h3>Instagram</h3><p>@Hambre_0</p></a>
+                <a href="#" class="card-red"><h3>Facebook</h3><p>/hambre0</p></a>
+                <a href="#" class="card-red"><h3>Twitter/X</h3><p>@0_Hambreo</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copy">&copy; 2026 HAMBRE 0</p>
+            <div class="redes-sociales">
+                <a href="#" class="red-link">Facebook</a>
+                <a href="#" class="red-link">Instagram</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtenemos el nombre del archivo actual (ej: "contacto.html")
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+
+        // Seleccionamos todos los enlaces del menú
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            
+            // Si el href del enlace coincide con la página actual, le ponemos la clase
+            // También manejamos el caso de la página de inicio vacía o index.html
+            if (href === page || (page === "" && href === "index.html")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
+</body>
+</html>

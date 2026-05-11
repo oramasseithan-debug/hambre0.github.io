@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hambre 0</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Pequeños ajustes específicos para el formulario */
+        .form-contacto { display: flex; flex-direction: column; gap: 15px; }
+        .form-contacto input, .form-contacto textarea { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+        .form-contacto button { padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .form-contacto button:hover { background-color: #0056b3; } /* Un azul un poco más oscuro para el hover */
+    </style>
+</head>
+<body>
+
+    <header class="banner">
+    <nav class="nav-container">
+        <div class="logo">Hambre 0</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="preguntas.html">FAQ</a></li>
+            <li><a href="redes.html">Redes</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="contenedor-principal">
+        <section class="contenido-info">
+            <h1>Contacto</h1>
+            <p>¿Tienes dudas o quieres colaborar? Escríbenos.</p>
+            <form class="form-contacto">
+                <input type="text" placeholder="Tu Nombre" required>
+                <input type="email" placeholder="Tu Correo Electrónico" required>
+                <textarea rows="5" placeholder="Tu Mensaje"></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copy">&copy; 2026 Hambre 0</p>
+            <div class="redes-sociales">
+                <a href="#" class="red-link">Facebook</a>
+                <a href="#" class="red-link">Instagram</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtenemos el nombre del archivo actual (ej: "contacto.html")
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+
+        // Seleccionamos todos los enlaces del menú
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            
+            // Si el href del enlace coincide con la página actual, le ponemos la clase
+            // También manejamos el caso de la página de inicio vacía o index.html
+            if (href === page || (page === "" && href === "index.html")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
+</body>
+</html>
